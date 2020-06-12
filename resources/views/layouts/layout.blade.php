@@ -38,7 +38,7 @@
    </div>
    
 
-   <script>
+   {{-- <script>
 
 const target = document.getElementById("target");
 
@@ -50,6 +50,6 @@ document.addEventListener("wheel", function(e){
   target.scrollBy(e.deltaX, e.deltaY);
 });
 
-   </script>
+   </script> --}}
 </body>
 </html>

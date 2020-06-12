@@ -17,6 +17,10 @@ Route::get('/', function () {
    return view('start');
 });
 
+Route::get('/portret', function () {
+   return view('start');
+});
+
 Route::get('/admin', function () {
    return view('admin');
 });

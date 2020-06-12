@@ -2,7 +2,7 @@
 
 @section('content')
 <aside>
-   <a href="">
+   <a href="portret">
       <button class="title">Portret</button>
    </a>
 </aside>
