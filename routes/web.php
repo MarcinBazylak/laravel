@@ -14,14 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-   return view('start');
+   return view('gallery');
 });
 
-Route::get('/portret', function () {
-   return view('start');
-});
+Auth::routes(['register' => false]);
 
-Route::get('/admin', function () {
-   return view('admin');
-});
+Route::get('/admin', 'HomeController@index');
+
+Route::get('/albums', 'AlbumController@index');
+
+Route::get('/albums/remove/{id}', 'AlbumController@destroy');
+
+Route::get('/albums/edit/{id}', 'AlbumController@edit');
+
+Route::post('/albums/edit/{id}', 'AlbumController@amend');
+
+Route::post('/albums', 'AlbumController@store');
+
+
+Route::get('/photographs', 'PhotoController@index');
+
 

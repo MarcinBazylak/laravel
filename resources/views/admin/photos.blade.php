@@ -3,7 +3,7 @@
 @section('content')
 
 
-ADMINISTRACJA
+ZDJĘCIA
 
 
 @endsection
