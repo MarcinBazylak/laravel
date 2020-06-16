@@ -19,8 +19,6 @@ class AlbumController extends Controller
 
       $albums = Album::get();
 
-      //$count = User::where('votes', '>', 100)->count();
-
       return view('admin/albums', ['albums' => $albums]);
    }
 

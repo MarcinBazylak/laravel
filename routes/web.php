@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-   return view('gallery');
-});
+
+Route::get('/', 'GalleryController@index');
+
+Route::get('/gallery/{id}', 'GalleryController@show');
 
 Auth::routes(['register' => false]);
 
@@ -32,6 +33,10 @@ Route::post('/albums/edit/{id}', 'AlbumController@amend');
 Route::post('/albums', 'AlbumController@store');
 
 
-Route::get('/photographs', 'PhotoController@index');
+Route::get('/photos', 'PhotoController@index');
+
+Route::get('/photos/remove/{id}', 'PhotoController@destroy');
+
+Route::post('/photos', 'PhotoController@store');
 
 

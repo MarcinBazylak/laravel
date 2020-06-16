@@ -3,7 +3,7 @@ img.gallery {
    max-height: 143px;
    border-radius: 10px;
    border: 1px solid  orangered;
-   filter: grayscale(1) opacity(0.5);
+   filter: grayscale(0.6) opacity(0.5);
    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
    overflow: hidden;
    transition-duration: 0.3s;

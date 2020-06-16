@@ -29,8 +29,20 @@
             <aside>
 
                <a href="/">
-                  <button class="title">Galeria</button>
+                  <button class="title">Strona Główna</button>
                </a>
+
+               @foreach ($buttons as $button)
+                  
+                     @if (isset($albumId) && $albumId == $button['id'])
+                        <button class="titleSelected">{{ $button['name'] }}</button>
+                     @else
+                        <a href="/gallery/{{ $button['id'] }}">
+                           <button class="title">{{ $button['name'] }}</button>
+                        </a>
+                     @endif
+                     
+               @endforeach
 
                @if (Auth::check())
 
@@ -38,7 +50,7 @@
                   <button class="title">Albumy</button>
                </a>
 
-               <a href="/photographs">
+               <a href="/photos">
                   <button class="title">Zdjęcia</button>
                </a>
 
