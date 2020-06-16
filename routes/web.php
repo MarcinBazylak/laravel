@@ -13,6 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'GalleryController@index');
+
+Route::get('/gallery/{id}', 'GalleryController@show');
+
+Auth::routes(['register' => false]);
+
+Route::get('/admin', 'HomeController@index');
+
+Route::get('/albums', 'AlbumController@index');
+
+Route::get('/albums/remove/{id}', 'AlbumController@destroy');
+
+Route::get('/albums/edit/{id}', 'AlbumController@edit');
+
+Route::post('/albums/edit/{id}', 'AlbumController@amend');
+
+Route::post('/albums', 'AlbumController@store');
+
+
+Route::get('/photos', 'PhotoController@index');
+
+Route::get('/photos/remove/{id}', 'PhotoController@destroy');
+
+Route::post('/photos', 'PhotoController@store');
+
+

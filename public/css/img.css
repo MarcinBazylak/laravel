@@ -1,0 +1,30 @@
+img.gallery {
+   max-width: 230px;
+   max-height: 143px;
+   border-radius: 10px;
+   border: 1px solid  orangered;
+   filter: grayscale(0.6) opacity(0.5);
+   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+   overflow: hidden;
+   transition-duration: 0.3s;
+}
+
+img.gallery:hover {
+   z-index: 1000;
+   transform: scale(1.2);
+   filter: none;
+   box-shadow: 5px 5px 25px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes image {
+   from {width: 100vw; transform: translate(0, -300px); opacity: 0}
+   to {width: 120vw; transform: translate(0px, -300px); opacity: 1}
+ }
+
+ .top-img {
+   min-width: 100vw;
+   animation-name: image;
+   animation-duration: 20s;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;
+}
