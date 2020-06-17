@@ -6,6 +6,7 @@
    <link rel="stylesheet" href="/css/style.css">
    <link rel="stylesheet" href="/css/img.css">
    <link rel="stylesheet" href="/css/form.css">
+   <link rel="stylesheet" href="/css/menu.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Marcin Bazylak Galeria</title>
@@ -14,7 +15,7 @@
 <body>
 
    <div class="container">
-      <img src="img/niko.jpg" alt="Nikodem" class="top-img">
+      <img src="/img/niko.jpg" alt="Nikodem" class="top-img">
 
       <div class="wrapper">
 
@@ -28,38 +29,66 @@
 
             <aside>
 
-               <a href="/">
-                  <button class="title">Strona Główna</button>
-               </a>
+               <nav>
 
-               @foreach ($buttons as $button)
+                  <label class="navigation-toggle" for="input-toggle">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                  </label>
+                  <input type="checkbox" id="input-toggle">
                   
-                     @if (isset($albumId) && $albumId == $button['id'])
-                        <button class="titleSelected">{{ $button['name'] }}</button>
-                     @else
-                        <a href="/gallery/{{ $button['id'] }}">
-                           <button class="title">{{ $button['name'] }}</button>
+                  <ul>
+
+                     <li>
+                        <a class="menu" href="/">
+                           Strona Główna
                         </a>
+                     </li>
+
+                     @foreach ($buttons as $button)
+                        
+                           @if (isset($albumId) && $albumId == $button['id'])
+                              <li>
+                                 <a class="menuSelected" href="/gallery/{{ $button['id'] }}">
+                                    {{ $button['name'] }}
+                                 </a>
+                              </li>
+                           @else
+                              <li>
+                                 <a class="menu" href="/gallery/{{ $button['id'] }}">
+                                    {{ $button['name'] }}
+                                 </a>
+                              </li>
+                           @endif
+                           
+                     @endforeach
+
+                     @if (Auth::check())
+                        <li>
+                           <a class="menu" href="/albums">
+                              Albumy
+                           </a>
+                        </li>
+
+                        <li>
+                           <a class="menu" href="/photos">
+                              Zdjęcia
+                           </a>
+                        </li>
+
+                        <li>
+                           <a class="menu" style="color: orangered" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                              Wyloguj
+                           </a>
+                        </li>
+
                      @endif
-                     
-               @endforeach
 
-               @if (Auth::check())
+                  </ul>
 
-               <a href="/albums">
-                  <button class="title">Albumy</button>
-               </a>
-
-               <a href="/photos">
-                  <button class="title">Zdjęcia</button>
-               </a>
-
-               <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                  <button class="title" style="color: orangered">Wyloguj</button>
-               </a>
-
-               @endif
+               </nav>
 
             </aside>
 
