@@ -7,9 +7,13 @@
    <link rel="stylesheet" href="/css/img.css">
    <link rel="stylesheet" href="/css/form.css">
    <link rel="stylesheet" href="/css/menu.css">
+   <link rel="stylesheet" href="/css/lbx.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Marcin Bazylak Galeria</title>
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="/js/lightbox/dist/js/lightbox.js"></script>
 </head>
 
 <body>
@@ -64,7 +68,7 @@
                               Strona Główna
                            </a>
                         </li>
-                        
+
                         <li>
                            <a class="menu" href="/albums">
                               Albumy
