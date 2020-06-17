@@ -42,7 +42,7 @@ h1 {
    max-width: 95%;
    height: 100vh;
    margin: auto;
-   grid-template-rows: 10vh auto 5vh;
+   grid-template-rows: 10vh auto 4vh;
    grid-template-columns: repeat(6, 1fr);
    grid-template-areas: 
    "header header header header header header"
@@ -95,7 +95,7 @@ footer {
    padding-top: 2vh;
    border-bottom: 1px solid #ddd;
    position: absolute;
-   height: 95%;
+   height: 100%;
    width: 100%;
    display: flex;
    flex-wrap: wrap;
