@@ -40,12 +40,6 @@
                   
                   <ul>
 
-                     <li>
-                        <a class="menu" href="/">
-                           Strona Główna
-                        </a>
-                     </li>
-
                      @foreach ($buttons as $button)
                         
                            @if (isset($albumId) && $albumId == $button['id'])
@@ -65,6 +59,12 @@
                      @endforeach
 
                      @if (Auth::check())
+                        <li>
+                           <a class="menu" href="/">
+                              Strona Główna
+                           </a>
+                        </li>
+                        
                         <li>
                            <a class="menu" href="/albums">
                               Albumy

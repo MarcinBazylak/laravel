@@ -23,7 +23,9 @@ class GalleryController extends Controller
 
       $photos = Photo::where('album_id', $id)->get();
 
-      return view('gallery', ['photos' => $photos, 'albumId' => $id]);
+      $albumName = Album::findOrFail($id)->name;
+
+      return view('gallery', ['photos' => $photos, 'albumId' => $id, 'albumName' => $albumName]);
 
    }
 
