@@ -31,25 +31,26 @@ h1 {
 }
 
 .wrapper {
-   position: absolute;
-   width: 100vw;
+   position: fixed;
    top: 0;
+   width: 100vw;
+   height: 100%;
 }
 
 .grid {
    display: grid;
    width: 1300px;
    max-width: 95%;
-   height: 100vh;
+   height: 100%;
    margin: auto;
-   grid-template-rows: 10vh auto 4vh;
+   grid-template-rows: 10% 82% 4%;
    grid-template-columns: repeat(6, 1fr);
    grid-template-areas: 
    "header header header header header header"
    "aside main main main main main"
    "footer footer footer footer footer footer"
    ;
-   grid-gap: 2vh;
+   grid-gap: 2%;
 }
 
 header {
@@ -61,11 +62,14 @@ main {
    grid-area: main;
    padding: 2vh;
    position: relative;
+   overflow: hidden;
+   border-bottom: 1px solid #ddd;
 }
 
 aside {
    grid-area: aside;
    padding: 4vh 1vh;
+
 }
 
 footer {
@@ -91,10 +95,9 @@ footer {
 
 .gallery-wrapper {
    padding-top: 2vh;
-   border-bottom: 1px solid #ddd;
    position: absolute;
    height: 100%;
-   width: 100%;
+   width: auto;
    display: flex;
    flex-wrap: wrap;
    overflow-y: scroll;
@@ -137,10 +140,10 @@ footer {
       display: grid;
       width: 1300px;
       max-width: 95%;
-      height: 100vh;
+      height: 100%;
       margin: auto;
-      grid-template-rows: 10vh 82% 4vh;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: 10% 80% 6%;
+      grid-template-columns: 100%;
       grid-template-areas: 
       "header"
       "main"

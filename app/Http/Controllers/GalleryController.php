@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Photo;
 use App\Album;
+use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
@@ -12,20 +13,28 @@ class GalleryController extends Controller
    public function index()
    {
 
-      $photos = Photo::get()->sortByDesc("id");
+      $album = Album::where('public', 1)->first();
 
-      return view('gallery', ['photos' => $photos]);
+      if(!empty($album)) {
+         $photos = Photo::where('album_id', $album['id'])->get();
+         return view('gallery', ['photos' => $photos]);
+      } else {
+         return view('gallery');
+      }
 
    }
 
    public function show($id)
    {
 
-      $photos = Photo::where('album_id', $id)->get();
+      $album = Album::where('id', $id)->where('public', 1)->first();
 
-      $albumName = Album::findOrFail($id)->name;
-
-      return view('gallery', ['photos' => $photos, 'albumId' => $id, 'albumName' => $albumName]);
+      if(!empty($album)) {
+         $photos = Photo::where('album_id', $id)->get(); 
+         return view('gallery', ['photos' => $photos, 'albumId' => $id, 'albumName' => $album['name']]);
+      } else {
+         return view('gallery');
+      }
 
    }
 

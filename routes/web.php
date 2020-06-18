@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ Route::get('/albums/remove/{id}', 'AlbumController@destroy');
 
 Route::get('/albums/edit/{id}', 'AlbumController@edit');
 
-Route::post('/albums/edit/{id}', 'AlbumController@amend');
+Route::put('/albums/update/{id}', 'AlbumController@update');
 
 Route::post('/albums', 'AlbumController@store');
 

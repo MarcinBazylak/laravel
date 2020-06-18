@@ -3,11 +3,11 @@
 
 <head>
    <meta charset="UTF-8">
-   <link rel="stylesheet" href="/css/style.css">
-   <link rel="stylesheet" href="/css/img.css">
-   <link rel="stylesheet" href="/css/form.css">
-   <link rel="stylesheet" href="/css/menu.css">
-   <link rel="stylesheet" href="/css/lbx.css">
+   <link rel="stylesheet" href="/css/style.css?<?php echo time() ?>">
+   <link rel="stylesheet" href="/css/img.css?<?php echo time() ?>">
+   <link rel="stylesheet" href="/css/form.css?<?php echo time() ?>">
+   <link rel="stylesheet" href="/css/menu.css?<?php echo time() ?>">
+   <link rel="stylesheet" href="/css/lbx.css?<?php echo time() ?>">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Marcin Bazylak Galeria</title>
@@ -50,12 +50,18 @@
                               <li>
                                  <a class="menuSelected" href="/gallery/{{ $button['id'] }}">
                                     {{ $button['name'] }}
+                                    @if ($button['public'] == 0)
+                                    <img src="/img/padlock.png" class="padlock">
+                                    @endif  
                                  </a>
                               </li>
                            @else
                               <li>
                                  <a class="menu" href="/gallery/{{ $button['id'] }}">
                                     {{ $button['name'] }}
+                                    @if ($button['public'] == 0)
+                                       <img src="/img/padlock.png" class="padlock">
+                                    @endif                                    
                                  </a>
                               </li>
                            @endif
