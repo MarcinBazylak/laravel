@@ -8,7 +8,7 @@
       {{ $albumName ?? ''}}
    </h2>
    
-   @if (count($photos) > 0)
+   @if (!empty($photos) && count($photos) > 0)
        
       @foreach ($photos as $photo)
 
@@ -22,7 +22,7 @@
 
    @else
 
-      <p style="margin-left: 1em">Album <strong>{{ $albumName }}</strong> Nie zawiera żadnych zdjęć.</p>
+      <p style="margin-left: 1em">Album <strong>{{ $albumName ?? ''}}</strong> nie zawiera żadnych zdjęć lub nie są one publiczne.</p>
 
    @endif
     

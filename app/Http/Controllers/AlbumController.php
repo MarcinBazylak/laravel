@@ -58,15 +58,15 @@ class AlbumController extends Controller
 
       $albums = Album::get();
 
-      return view('admin/editAlbum', ['albumId' => $id, 'albumName' => $album->name, 'albums' => $albums]);
+      return view('admin/editAlbum', ['albumId' => $id, 'albumName' => $album->name, 'albums' => $albums, 'public' => $album->public]);
 
    }
 
-   public function amend($id)
+   public function update($id)
    {
     
       request()->validate([
-        'name' => 'string|required|unique:albums|max:30'
+        'name' => 'string|required|max:30'
       ]);
 
       $album = Album::findOrFail($id);
@@ -75,7 +75,11 @@ class AlbumController extends Controller
 
       $newName = request('name');
 
+      $public = request('public');
+
       $album->name = $newName;
+
+      $album->public = $public;
 
       $album->save();
 

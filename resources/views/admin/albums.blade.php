@@ -26,6 +26,10 @@
          </div>
 
          <div class="form-part">
+            <input type="checkbox" name="public" value="1" checked> publiczny
+         </div>
+
+         <div class="form-part">
             <button type="submit" class="btn">
                Dodaj nowy album
             </button>
@@ -42,10 +46,15 @@
             $count = Photo::where('album_id', '=', $album['id'])->count();
          @endphp
 
-         {{ $album['name'] }} [{{ $count }}] <br>
+         {{ $album['name'] }} [{{ $count }}] 
+         @if ($album['public'] === 1)
+             publiczny
+         @endif
+         
+         <br>
          <a href="/albums/edit/{{ $album['id'] }}">edytuj</a>
 
-         @if ($count == 0)
+         @if ($count === 0)
                | <a href="/albums/remove/{{ $album['id'] }}">usuń</a>
          @endif
 
